@@ -513,13 +513,12 @@ public static <T extends Comparable<? super T>> int isSorted(T[] arr) {
 使用 `IntStream.range` 创建一个指定索引的数组。然后，使用 `Stream.reduce` 将元素组合成字符串。
 
 ```java
-public static <T> String join(T[] arr, String separator, String end) {
-    return IntStream.range(0, arr.length)
-            .mapToObj(i -> new SimpleEntry<>(i, arr[i]))
-            .reduce("", (acc, val) -> val.getKey() == arr.length - 2
-                    ? acc + val.getValue() + end
-                    : val.getKey() == arr.length - 1 ? acc + val.getValue() : acc + val.getValue() + separator, (fst, snd) -> fst);
-}
+public static <T> String join(T[] arr, String separator, String end){
+        return IntStream.range(0, arr.length).
+                mapToObj(i->new AbstractMap.SimpleEntry<>(i,arr[i])).
+                reduce("",(acc,val)->val.getKey() == arr.length - 1 ? acc + val.getValue() + end
+                        : acc + val.getValue() + separator, (fst,snd)->snd);
+    }
 ```
 
 <br>[⬆ 回到顶部](#目录)
