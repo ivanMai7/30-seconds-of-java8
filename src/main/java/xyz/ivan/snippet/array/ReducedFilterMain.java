@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ReducedFilterMain {
     public static void main(String[] args) {
@@ -26,6 +28,11 @@ public class ReducedFilterMain {
         for (Map<String, Object> map : reducedFilter(data, keys, (map) -> map.containsKey("Gryffindor"))) {
            map.forEach((k,v) -> System.out.println(k + "==" + v));
         }
+
+        int[] array = IntStream.of(1, 2, 3).toArray();
+        Integer[] array3 = Arrays.stream(array).boxed().toArray(Integer[]::new);
+        String[] array1 = Stream.of("a", "b").toArray(String[]::new);
+        Integer[] array2 = Stream.of(1, 2).toArray(Integer[]::new);
     }
 
 

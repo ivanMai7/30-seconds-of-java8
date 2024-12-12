@@ -575,6 +575,18 @@ public static Map<String, Object>[] reducedFilter(Map<String, Object>[] data, St
 
 <br>[⬆ 回到顶部](#目录)
 
+### BasicInt2Integer
+
+将基本类型的int[] 转换为 Integer[]
+
+```java
+private static Integer[] int2Integer(int[] arr) {
+        return Arrays.stream(arr).boxed().toArray(Integer[]::new);
+}
+```
+
+<br>[⬆ 回到顶部](#目录)
+
 ### sample
 
 从数组中返回一个随机元素。
@@ -1420,3 +1432,5 @@ public static <E extends Enum<E>> Map<String, E> getEnumMap(final Class<E> enumC
 ```
 
 <br>[⬆ 回到顶部](#目录)
+
+
