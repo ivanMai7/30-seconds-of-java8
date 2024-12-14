@@ -11,7 +11,7 @@ public class BasicInt2IntegerMain {
             System.out.println(integer);
         }
     }
-    private static Integer[] int2Integer(int[] arr) {
+    public static Integer[] int2Integer(int[] arr) {
         return Arrays.stream(arr).boxed().toArray(Integer[]::new);
     }
 
